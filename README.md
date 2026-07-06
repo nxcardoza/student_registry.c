@@ -97,7 +97,7 @@ void addStudent(int id[], char name[][50], char major[][50], float gpa[], int cr
     printf("Student has been sucessfully added!\n");
 }
 
-// search by id - it lets user search the student's information through their ID number. 
+// search by id - this function lets user search the student's information through their ID number. 
 void searchById(int id[], char name[][50], char major[][50], float gpa[], int credits[], int total)
 {
     int search;
@@ -121,7 +121,7 @@ void searchById(int id[], char name[][50], char major[][50], float gpa[], int cr
     printf("Student not found.\n"); // failsafe
 }
 
-// search by gpa - lets the user search a list of students based on their GPAs. 
+// search by gpa - this function lets the user search a list of students based on their GPAs. 
 void findByGPA(float gpa[], char name[][50], int total)
 {
     float search;
@@ -142,35 +142,35 @@ void findByGPA(float gpa[], char name[][50], int total)
         printf("No students found.\n");
 }
 
-// search by major
+// search by major - this is the function that lets the user find the students under that major.
 void findByMajor(char major[][50], char name[][50], int total)
 {
-    char search[50];
-    int count = 0;
+    char search[50]; 
+    int count = 0; 
 
     printf("Enter Major: ");
     scanf(" %[^\n]", search);
 
     for(int i = 0; i < total; i++)
     {
-        if(strcmp(major[i], search) == 0)
+        if(strcmp(major[i], search) == 0) //strcmp is used to compare strings, since we are using strings on our major. 
         {
             printf("%s\n", name[i]);
-            count++;
+            count++; // updates the count variable.
         }
     }
 
-    printf("Total Students: %d\n", count);
+    printf("Total Students: %d\n", count); 
 }
-// display all students
+// display all students - this is the function that lets the user see all the students that hey have listed(MAX is 10).
 void displayStudents(int id[], char name[][50], char major[][50], float gpa[], int credits[], int total)
 {
-    if(total == 0)
+    if(total == 0) // failsafe if the system finds 0 students in the system.
     {
         printf("No students added.\n");
         return;
     }
-
+// if it doesn't find anything equal to zero then this code starts.
     for(int i = 0; i < total; i++)
     {
         printf("\nStudent %d\n", i + 1);
